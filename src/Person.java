@@ -7,6 +7,7 @@ public class Person  {
         this.name = name;
         this.lastName = lastName;
         this.ticketsN = ticketsN;
+
     }
 
     public String getName() {
@@ -30,11 +31,13 @@ public class Person  {
         }
     }
     public void decreaseTicketsN() {
-        ticketsN--;
+        if (ticketsN > 0) {
+            ticketsN--;
+        }
     }
 
     @Override
     public String toString() {
-        return name + " " + lastName + " has ridden attraction";
+        return name + " " + lastName;
     }
 }
