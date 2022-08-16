@@ -1,11 +1,10 @@
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Deque;
 import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        Queue <Person> queue = new LinkedList<>(generateClients());
+        Queue<Person> queue = new LinkedList<>(generateClients());
 
         while (!queue.isEmpty()) {
             // pulls first person out of the queue
@@ -18,13 +17,13 @@ public class Main {
             person.decreaseTicketsN();
             StringBuilder sb = new StringBuilder(person.toString());
             sb.append(" has ridden attraction");
-            System.out.println(sb.toString());
+            System.out.println(sb);
             // if the person still has tickets, added to the end of the queue
             if (person.ifTicketsLeft()) {
-                queue.add(person);
+                queue.offer(person);
             }
             // person leaves the queue
-            queue.remove(person);
+            queue.poll();
         }
     }
 
