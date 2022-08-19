@@ -1,4 +1,4 @@
-public class Person  {
+public class Person {
     private String name;
     private String lastName;
     private int ticketsN;
@@ -7,7 +7,6 @@ public class Person  {
         this.name = name;
         this.lastName = lastName;
         this.ticketsN = ticketsN;
-
     }
 
     public String getName() {
@@ -22,14 +21,14 @@ public class Person  {
         return ticketsN;
     }
 
-
-    public boolean ifTicketsLeft() {
+    public boolean isTicketsLeft() {
         if (ticketsN > 0) {
             return true;
         } else {
             return false;
         }
     }
+
     public void decreaseTicketsN() {
         if (ticketsN > 0) {
             ticketsN--;

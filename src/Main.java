@@ -8,22 +8,17 @@ public class Main {
 
         while (!queue.isEmpty()) {
             // pulls first person out of the queue
-            Person person = queue.peek();
-            // ticket check: if person has no ticket, person leaves the queue
-            if (!person.ifTicketsLeft()) {
-                queue.remove(person);
-                continue;
+            Person person = queue.poll();
+            // check out if the person has tickets,
+            // the number of tickets is reduces and person rides attraction
+            if (person.getTicketsN() > 0) {
+                person.decreaseTicketsN();
+                System.out.println(person + " has ridden attraction");
             }
-            person.decreaseTicketsN();
-            StringBuilder sb = new StringBuilder(person.toString());
-            sb.append(" has ridden attraction");
-            System.out.println(sb);
-            // if the person still has tickets, added to the end of the queue
-            if (person.ifTicketsLeft()) {
+            // if the person still has tickets, this person is pushes to the end of the queue
+            if (person.isTicketsLeft()) {
                 queue.offer(person);
             }
-            // person leaves the queue
-            queue.poll();
         }
     }
 
